@@ -86,11 +86,9 @@ const data = {
 export function SystemPage({ slug }: { slug: string }) {
   const item = data[slug as keyof typeof data];
   const hasInterfaceScreens = "screens" in item;
-  const heroStyle = hasInterfaceScreens
-    ? {
-        backgroundImage: `linear-gradient(90deg, rgba(7, 27, 66, .96) 0%, rgba(7, 27, 66, .80) 48%, rgba(7, 27, 66, .42) 100%), url(${item.image})`,
-      }
-    : undefined;
+  const heroStyle = {
+    backgroundImage: `linear-gradient(90deg, rgba(7, 27, 66, .96) 0%, rgba(7, 27, 66, .80) 48%, rgba(7, 27, 66, .42) 100%), url(${item.image})`,
+  };
   const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Olá! Gostaria de conhecer melhor o ${item.name}.`)}`;
   return (
     <main className="systemPage">
@@ -102,10 +100,7 @@ export function SystemPage({ slug }: { slug: string }) {
           ← Voltar ao site
         </a>
       </header>
-      <section
-        className={hasInterfaceScreens ? "systemHero visualHero" : "systemHero"}
-        style={heroStyle}
-      >
+      <section className="systemHero visualHero" style={heroStyle}>
         <div>
           <span>{item.eyebrow}</span>
           <h1>{item.title}</h1>
@@ -114,7 +109,6 @@ export function SystemPage({ slug }: { slug: string }) {
             Falar sobre {item.name} <MessageCircle size={17} />
           </a>
         </div>
-        {!hasInterfaceScreens && <img src={item.image} alt={item.name} />}
       </section>
       <section className="systemContent">
         <div>
