@@ -934,12 +934,15 @@ footer {
   display: grid;
   place-items: center;
   overflow: hidden;
+  text-align: center;
 }
 .groupBrand img {
   width: 170px;
   height: 82px;
   object-fit: contain;
+  object-position: center;
   display: block;
+  margin: 0 auto;
 }
 .groupBrand.hengel img {
   transform: scale(1.3);
@@ -979,7 +982,7 @@ footer {
 .systemBadge {
   position: absolute;
   right: 14px;
-  bottom: 14px;
+  bottom: 34px;
   width: 108px;
   height: 58px;
   padding: 6px;
@@ -1034,7 +1037,7 @@ footer {
     width: 94px;
     height: 52px;
     right: 9px;
-    bottom: 9px;
+    bottom: 26px;
   }
   .services {
     min-height: 550px;
