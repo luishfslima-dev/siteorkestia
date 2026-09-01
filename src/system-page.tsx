@@ -88,7 +88,7 @@ export function SystemPage({ slug }: { slug: string }) {
   const hasInterfaceScreens = "screens" in item;
   const heroStyle = hasInterfaceScreens
     ? {
-        backgroundImage: `linear-gradient(90deg, rgba(7, 27, 66, .96) 0%, rgba(7, 27, 66, .80) 48%, rgba(7, 27, 66, .42) 100%), url(${item.screens[0].image})`,
+        backgroundImage: `linear-gradient(90deg, rgba(7, 27, 66, .96) 0%, rgba(7, 27, 66, .80) 48%, rgba(7, 27, 66, .42) 100%), url(${item.image})`,
       }
     : undefined;
   const url = `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Olá! Gostaria de conhecer melhor o ${item.name}.`)}`;
