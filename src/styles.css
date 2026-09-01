@@ -1099,3 +1099,74 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Ritmo visual das páginas dos sistemas: cada seção tem começo e fim perceptíveis. */
+.systemContent {
+  padding-top: 112px;
+  padding-bottom: 112px;
+  border-bottom: 1px solid #dfe7f4;
+}
+.systemScreens {
+  position: relative;
+  padding-top: 105px;
+  background: #edf4ff;
+  box-shadow: 0 0 0 100vmax #edf4ff;
+  clip-path: inset(0 -100vmax);
+}
+.systemScreens h2 {
+  max-width: 620px;
+}
+.systemModules {
+  background: #fff;
+  border-top: 1px solid #dfe7f4;
+}
+.systemModules article {
+  background: #f5f8fd;
+}
+@media (max-width: 800px) {
+  .systemContent {
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+  .systemScreens {
+    padding-top: 75px;
+  }
+  .systemModules {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+}
+
+/* Separação visual também na página principal, para orientar a navegação em telas menores. */
+.story {
+  padding-top: 118px;
+  padding-bottom: 118px;
+}
+.groupSection {
+  padding: 110px 0;
+  background: #f2f6fc;
+  border-top: 1px solid #dfe7f4;
+  border-bottom: 1px solid #dfe7f4;
+}
+.challenges {
+  border-bottom: 1px solid #dfe7f4;
+}
+.muted {
+  border-bottom: 1px solid #d9e4f3;
+}
+.cases {
+  border-top: 1px solid #dfe7f4;
+  border-bottom: 1px solid #dfe7f4;
+}
+.contact {
+  border-top: 1px solid #dfe7f4;
+}
+@media (max-width: 800px) {
+  .story {
+    padding-top: 78px;
+    padding-bottom: 78px;
+  }
+  .groupSection {
+    padding: 76px 0;
+  }
+}
