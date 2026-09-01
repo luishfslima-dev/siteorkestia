@@ -297,6 +297,12 @@
   border-radius: 12px;
   box-shadow: 0 24px 55px #0004;
 }
+.systemHero.visualHero {
+  min-height: 570px;
+  grid-template-columns: minmax(0, 600px);
+  background-size: cover;
+  background-position: center;
+}
 .systemContent {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
@@ -395,6 +401,10 @@
   }
   .systemHero {
     padding: 60px 24px;
+  }
+  .systemHero.visualHero {
+    grid-template-columns: 1fr;
+    background-position: 62% center;
   }
   .systemHero > img {
     order: -1;
