@@ -24,6 +24,7 @@ const solutions = [
     text: "Gestão inteligente para operações, manutenção, engenharia e processos.",
     image: legato,
     logo: maestroLogo,
+    slug: "maestro",
     tag: "Gestão operacional",
     features: [
       "Ordens de serviço e manutenção",
@@ -50,6 +51,7 @@ const solutions = [
     text: "Tecnologia e organização para a rotina jurídica e seus processos.",
     image: maestro,
     logo: legatoLogo,
+    slug: "legato",
     tag: "Gestão jurídica",
     features: [
       "Controle de processos e prazos",
@@ -76,6 +78,7 @@ const solutions = [
     text: "Dados, sensores e controle para uma operação rural mais eficiente.",
     image: agro,
     logo: agroLogo,
+    slug: "agro",
     tag: "Tecnologia no campo",
     features: [
       "Monitoramento da propriedade",
@@ -433,9 +436,13 @@ function App() {
                       <span>{item.tag}</span>
                       <h3>{item.title}</h3>
                       <p>{item.text}</p>
-                      <button type="button" className="textButton">
+                      <a
+                        href={`/${item.slug}`}
+                        className="textButton"
+                        onClick={(event) => event.stopPropagation()}
+                      >
                         Explorar solução <ArrowRight size={16} />
-                      </button>
+                      </a>
                     </div>
                   </article>
                 </Reveal>
