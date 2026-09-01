@@ -2,6 +2,7 @@ import { ArrowRight, Check, Menu, MessageCircle, X } from 'lucide-react'
 import { createRoot } from 'react-dom/client'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import './styles.css'
+import { SystemPage } from './system-page'
 import logo from './assets/orkestia-logo.jpeg'
 import hero from './assets/hero-devices.png'
 import maestro from './assets/maestro.png'
@@ -49,4 +50,5 @@ function App() {
     <footer><div className="container footer"><img src={logo} alt="Orkestia"/><p>© {new Date().getFullYear()} Orkestia Soluções Tecnológicas</p><div><a href="#inicio">Instagram</a><a href="#inicio">LinkedIn</a></div></div></footer>
   </>
 }
-createRoot(document.getElementById('root')!).render(<App />)
+const slug = window.location.pathname.replace(/^\/+|\/+$/g, '')
+createRoot(document.getElementById('root')!).render(['maestro', 'legato', 'agro'].includes(slug) ? <SystemPage slug={slug} /> : <App />)
