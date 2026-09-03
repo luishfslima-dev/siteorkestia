@@ -1,4 +1,5 @@
 import { ArrowRight, Check, MessageCircle } from "lucide-react";
+import { useEffect } from "react";
 import logo from "./assets/orkestia-logo.jpeg";
 import maestro from "./assets/maestro.png";
 import legato from "./assets/legato.png";
@@ -85,6 +86,24 @@ const data = {
 
 export function SystemPage({ slug }: { slug: string }) {
   const item = data[slug as keyof typeof data];
+  useEffect(() => {
+    const pageTitle = `${item.name} | Orkestia`;
+    const pageUrl = `https://orkestiasolucoes.com/${slug}`;
+    document.title = pageTitle;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", item.description);
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute("content", pageTitle);
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute("content", item.description);
+    document
+      .querySelector('meta[property="og:url"]')
+      ?.setAttribute("content", pageUrl);
+    document.querySelector("link[rel='canonical']")?.setAttribute("href", pageUrl);
+  }, [item, slug]);
   const hasInterfaceScreens = "screens" in item;
   const heroStyle = {
     backgroundImage: `linear-gradient(90deg, rgba(7, 27, 66, .96) 0%, rgba(7, 27, 66, .80) 48%, rgba(7, 27, 66, .42) 100%), url(${item.image})`,
