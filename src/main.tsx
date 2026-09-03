@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Menu, MessageCircle, X } from "lucide-react";
+import { ArrowRight, Check, Menu, X } from "lucide-react";
 import { createRoot } from "react-dom/client";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import "./styles.css";
@@ -18,6 +18,21 @@ import legatoLogo from "./assets/legato-logo.png";
 import agroLogo from "./assets/agro-logo.png";
 
 const whatsapp = "5519989840708";
+
+function WhatsAppIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12 2a9.6 9.6 0 0 0-8.22 14.57L2.5 21.5l5.07-1.25A9.5 9.5 0 1 0 12 2Zm0 17.4a7.78 7.78 0 0 1-3.96-1.08l-.28-.16-3.02.75.8-2.94-.18-.3A7.78 7.78 0 1 1 12 19.4Zm4.27-5.82c-.23-.12-1.36-.67-1.57-.74-.21-.08-.36-.12-.51.12-.15.23-.58.74-.71.89-.13.16-.26.18-.49.06a6.37 6.37 0 0 1-1.85-1.14 6.9 6.9 0 0 1-1.28-1.59c-.13-.23 0-.35.1-.46.1-.1.23-.27.34-.4.11-.13.15-.23.23-.38.07-.16.03-.29-.02-.4-.06-.12-.51-1.23-.7-1.69-.18-.44-.37-.38-.51-.39h-.43c-.15 0-.4.06-.61.29-.21.23-.8.78-.8 1.9 0 1.12.82 2.2.93 2.35.12.15 1.62 2.47 3.93 3.47.55.24.98.38 1.31.49.55.17 1.05.14 1.45.08.44-.07 1.36-.56 1.55-1.1.19-.55.19-1.02.13-1.12-.05-.1-.2-.16-.43-.27Z" />
+    </svg>
+  );
+}
+
 const solutions = [
   {
     title: "Orkestia Maestro",
@@ -624,7 +639,7 @@ function App() {
                 rows={4}
               />
               <button className="button" type="submit">
-                Continuar no WhatsApp <MessageCircle size={16} />
+                Continuar no WhatsApp <WhatsAppIcon size={17} />
               </button>
             </form>
           </Reveal>
@@ -637,7 +652,7 @@ function App() {
         href={whatsappUrl("Olá! Gostaria de falar com a Orkestia.")}
         aria-label="Falar no WhatsApp"
       >
-        <MessageCircle size={23} />
+        <WhatsAppIcon size={25} />
       </a>
       <footer>
         <div className="container footer">
