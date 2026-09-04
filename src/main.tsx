@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { SystemPage } from "./system-page";
+import { ContentHub, ContentPage, contentCards } from "./content-page";
 import logo from "./assets/orkestia-logo.jpeg";
 import hero from "./assets/hero-devices.png";
 import maestro from "./assets/maestro.png";
@@ -550,7 +551,7 @@ function App() {
         <section className="section cases">
           <div className="container">
             <Reveal>
-              <span className="eyebrow blue">Aplicações Orkestia</span>
+              <span className="eyebrow blue">Cenários de aplicação</span>
               <h2>
                 Tecnologia aplicada a<br />
                 desafios reais.
@@ -600,6 +601,18 @@ function App() {
                   </a>
                 </article>
               </Reveal>
+            </div>
+          </div>
+        </section>
+        <section id="conteudos" className="section contentSection">
+          <div className="container">
+            <Reveal>
+              <span className="eyebrow blue">Conteúdos Orkestia</span>
+              <h2>Conhecimento para decisões<br />mais bem estruturadas.</h2>
+              <p className="sectionLead">Guias práticos sobre tecnologia, gestão e organização de operações.</p>
+            </Reveal>
+            <div className="contentGrid">
+              {contentCards.map((article) => <Reveal key={article.slug}><a className="contentCard" href={`/conteudos/${article.slug}`}><span>{article.category}</span><h3>{article.title}</h3><p>{article.description}</p><strong>Ler conteúdo <ArrowRight size={16} /></strong></a></Reveal>)}
             </div>
           </div>
         </section>
@@ -668,9 +681,14 @@ function App() {
   );
 }
 const slug = window.location.pathname.replace(/^\/+|\/+$/g, "");
+const contentPrefix = "conteudos/";
 createRoot(document.getElementById("root")!).render(
   ["maestro", "legato", "agro"].includes(slug) ? (
     <SystemPage slug={slug} />
+  ) : slug === "conteudos" ? (
+    <ContentHub />
+  ) : slug.startsWith(contentPrefix) && contentCards.some((article) => article.slug === slug.slice(contentPrefix.length)) ? (
+    <ContentPage slug={slug.slice(contentPrefix.length)} />
   ) : (
     <App />
   ),
